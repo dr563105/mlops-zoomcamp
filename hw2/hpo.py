@@ -34,6 +34,8 @@ def run(data_path, num_trials):
             rmse = mean_squared_error(y_valid, y_pred, squared=False)
             mlflow.log_metric('rmse',rmse)
 
+            mlflow.sklearn.log_model(rf, artifact_path="artifacts") # need this to log the model in custom artifacts location
+
         return {'loss': rmse, 'status': STATUS_OK}
 
     search_space = {
