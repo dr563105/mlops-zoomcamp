@@ -7,3 +7,5 @@ mlruns/
 output/
 *.b
 *.bin
+sample/
+docker-compose
