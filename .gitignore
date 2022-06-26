@@ -9,4 +9,9 @@ output/
 *.bin
 sample/
 docker-compose
+*.parquet
+simple/
 *__pycache__*
+**/.terraform/*
+*.tfstate
+*.tfstate.*
