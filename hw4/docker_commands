@@ -1,0 +1,8 @@
+
+docker build -t ride-duration-prediction-service:v1 .
+
+docker run -ti --rm ride-duration-prediction-service:v1 2021 4
+
+
+predicted mean for 2021, 04 is 9.967573179784523
+Saving ouput file...
