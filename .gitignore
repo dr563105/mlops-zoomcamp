@@ -15,3 +15,4 @@ simple/
 **/.terraform/*
 *.tfstate
 *.tfstate.*
+tryouts/
