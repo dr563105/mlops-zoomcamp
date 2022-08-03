@@ -29,8 +29,6 @@ def read_data(filename, categorical):
 
     return df
 
-
-
 def get_input_path(year, month):
     default_input_pattern = 'https://raw.githubusercontent.com/alexeygrigorev/datasets/master/nyc-tlc/fhv/fhv_tripdata_{year:04d}-{month:02d}.parquet'
     input_pattern = os.getenv('INPUT_FILE_PATTERN', default_input_pattern)

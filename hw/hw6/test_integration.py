@@ -1,22 +1,11 @@
-import pandas as pd
+from batch import prepare_data, get_output_path
 from datetime import datetime
-from batch import main, get_output_path
+import pandas as pd
 
 S3_ENDPOINT_URL = 'http://localhost:4566'
 
 def dt(hour, minute, second=0):
     return datetime(2021, 1, 1, hour, minute, second)
-
-def prepare_data(df, categorical):
-
-    df['duration'] = df.dropOff_datetime - df.pickup_datetime
-    df['duration'] = df.duration.dt.total_seconds() / 60
-
-    df = df[(df.duration >= 1) & (df.duration <= 60)].copy()
-
-    df[categorical] = df[categorical].fillna(-1).astype('int').astype('str')
-    
-    return df
 
 def output_file():
     data = [
@@ -28,8 +17,8 @@ def output_file():
 
     columns = ['PUlocationID', 'DOlocationID', 'pickup_datetime', 'dropOff_datetime']
     df = pd.DataFrame(data, columns=columns)
-
-    df_prepared = prepare_data(df, ['PUlocationID', 'DOlocationID'])
+    categorical = ['PUlocationID', 'DOlocationID']
+    df_prepared = prepare_data(df, categorical)
 
     options = {
         'client_kwargs': {
