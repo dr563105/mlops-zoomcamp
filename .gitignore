@@ -16,3 +16,4 @@ simple/
 *.tfstate
 *.tfstate.*
 tryouts/
+*.pytest_cache*
